@@ -1,3 +1,10 @@
+# 1.0.0 (2022-03-03)
+
+
+### Bug Fixes
+
+* Initial commit ([#1](https://github.com/catalystsquad/action-release-update-chart/issues/1)) ([72bf32b](https://github.com/catalystsquad/action-release-update-chart/commit/72bf32b85e474efb298ff42eab4df27d043f7d0b))
+
 # 1.0.0 (2022-02-28)
 
 

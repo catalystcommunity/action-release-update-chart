@@ -1,11 +1,11 @@
 <!-- start title -->
 
-# GitHub Action:Hello World
+# GitHub Action:Release and Update Chart
 
 <!-- end title -->
 <!-- start description -->
 
-Greet someone
+This action is intended to run on PR merge. It performs a semantic-release, then creates a PR into a helm chart repository with an updated appVersion, using the same PR title and body as the PR that triggered the workflow
 
 <!-- end description -->
 <!-- start contents -->
@@ -13,19 +13,54 @@ Greet someone
 <!-- start usage -->
 
 ```yaml
-- uses: catalystsquad/action-composite-action-template@undefined
+- uses: catalystsquad/action-release-update-chart@undefined
   with:
-    # Who to greet
-    # Default: World
-    who-to-greet: ""
+    # Github token to use, this should be a PAT so that it can trigger workflows on
+    # the destination helm repository
+    token: ""
+
+    # semantic-release release configuration to use
+    # Default: @catalystsquad/release-config-general
+    release-config: ""
+
+    # The helm chart git repo to update
+    # Default: ${{ github.repository_owner }}/chart-${{ github.event.repository.name }}
+    helm-repo: ""
+
+    # The helm chart git repo to branch from and PR into
+    # Default: alpha
+    helm-repo-branch: ""
+
+    # The path to the helm chart in the helm git repo
+    # Default: chart
+    path-to-chart: ""
+
+    # Labels to apply to the PR. Should be a comma separated string
+    # Default: automerge
+    labels: ""
+
+    # Delete PR branch after merge
+    # Default: true
+    delete-branch: ""
+
+    # The prefix for the name of the feature branch
+    # Default: automated-code-release-
+    branch-prefix: ""
 ```
 
 <!-- end usage -->
 <!-- start inputs -->
 
-| **Input**          | **Description** | **Default** | **Required** |
-| :----------------- | :-------------- | :---------: | :----------: |
-| **`who-to-greet`** | Who to greet    |   `World`   |   **true**   |
+| **Input**              | **Description**                                                                                               |                                **Default**                                 | **Required** |
+| :--------------------- | :------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------: | :----------: |
+| **`token`**            | Github token to use, this should be a PAT so that it can trigger workflows on the destination helm repository |                                                                            |   **true**   |
+| **`release-config`**   | semantic-release release configuration to use                                                                 |                  `@catalystsquad/release-config-general`                   |  **false**   |
+| **`helm-repo`**        | The helm chart git repo to update                                                                             | `${{ github.repository_owner }}/chart-${{ github.event.repository.name }}` |  **false**   |
+| **`helm-repo-branch`** | The helm chart git repo to branch from and PR into                                                            |                                  `alpha`                                   |  **false**   |
+| **`path-to-chart`**    | The path to the helm chart in the helm git repo                                                               |                                  `chart`                                   |  **false**   |
+| **`labels`**           | Labels to apply to the PR. Should be a comma separated string                                                 |                                `automerge`                                 |  **false**   |
+| **`delete-branch`**    | Delete PR branch after merge                                                                                  |                                   `true`                                   |  **false**   |
+| **`branch-prefix`**    | The prefix for the name of the feature branch                                                                 |                         `automated-code-release-`                          |  **false**   |
 
 <!-- end inputs -->
 <!-- start outputs -->
