@@ -41,7 +41,7 @@ runs:
         token: ${{ inputs.token }}
     - name: Release
       id: release
-      uses: cycjimmy/semantic-release-action@v2
+      uses: cycjimmy/semantic-release-action@v3
       with:
         extends: ${{ inputs.release-config }}
       env:
