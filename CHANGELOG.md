@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/catalystsquad/action-release-update-chart/compare/v1.0.0...v1.0.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* upgrade semantic release action to v3 ([#3](https://github.com/catalystsquad/action-release-update-chart/issues/3)) ([7e50e75](https://github.com/catalystsquad/action-release-update-chart/commit/7e50e755374f9366bbdbbcf429556c657b456609))
+
 # 1.0.0 (2022-03-03)
 
 
