@@ -39,6 +39,10 @@ inputs:
     description: 'Whether to checkout the repo at the beginning of the action'
     required: false
     default: 'true'
+outputs:
+  new-release-published:
+    description: "The value of new_release_version from semantic-release"
+    value: ${{ steps.release.outputs.new_release_published }}
 runs:
   using: "composite"
   steps:
