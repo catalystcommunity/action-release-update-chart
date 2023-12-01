@@ -27,28 +27,41 @@ inputs:
   delete-branch:
     description: 'Delete PR branch after merge'
     required: false
-    default: true
+    default: 'true'
   branch-prefix:
     description: 'The prefix for the name of the feature branch'
     required: false
     default: 'automated-code-release-'
+  working-directory:
+    description: 'Directory to run semantic-release in '
+    required: false
+  checkout-repo:
+    description: 'Whether to checkout the repo at the beginning of the action'
+    required: false
+    default: 'true'
+outputs:
+  new-release-published:
+    description: "The value of new_release_version from semantic-release"
+    value: ${{ steps.release.outputs.new_release_published }}
 runs:
   using: "composite"
   steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      if: inputs.checkout-repo == 'true'
+      uses: actions/checkout@v4
       with:
         token: ${{ inputs.token }}
     - name: Release
       id: release
       uses: cycjimmy/semantic-release-action@v3
       with:
+        working_directory: ${{ inputs.working-directory }}
         extends: ${{ inputs.release-config }}
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
     - if: steps.release.outputs.new_release_published == 'true'
       name: Checkout helm chart
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: ${{ inputs.helm-repo }}
         token: ${{ inputs.token }}
