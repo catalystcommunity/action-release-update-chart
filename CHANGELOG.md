@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/catalystsquad/action-release-update-chart/compare/v1.1.0...v1.1.1) (2023-12-01)
+
+
+### Bug Fixes
+
+* add new-release-version output ([#6](https://github.com/catalystsquad/action-release-update-chart/issues/6)) ([554c416](https://github.com/catalystsquad/action-release-update-chart/commit/554c416daf421d031424b65a78bd33de015a45e9))
+
 # [1.1.0](https://github.com/catalystsquad/action-release-update-chart/compare/v1.0.1...v1.1.0) (2023-12-01)
 
 
