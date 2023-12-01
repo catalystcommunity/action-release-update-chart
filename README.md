@@ -74,9 +74,10 @@ This action is intended to run on PR merge. It performs a semantic-release, then
 <!-- end inputs -->
 <!-- start outputs -->
 
-| **Output**              | **Description**                                        | **Default** | **Required** |
-| :---------------------- | :----------------------------------------------------- | ----------- | ------------ |
-| `new-release-published` | The value of new_release_version from semantic-release |             |              |
+| **Output**              | **Description**                                          | **Default** | **Required** |
+| :---------------------- | :------------------------------------------------------- | ----------- | ------------ |
+| `new-release-published` | The value of new_release_published from semantic-release |             |              |
+| `new-release-version`   | The value of new_release_version from semantic-release   |             |              |
 
 <!-- end outputs -->
 <!-- start examples -->
