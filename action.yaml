@@ -41,8 +41,11 @@ inputs:
     default: 'true'
 outputs:
   new-release-published:
-    description: "The value of new_release_version from semantic-release"
+    description: "The value of new_release_published from semantic-release"
     value: ${{ steps.release.outputs.new_release_published }}
+  new-release-version:
+    description: "The value of new_release_version from semantic-release"
+    value: ${{ steps.release.outputs.new_release_version }}
 runs:
   using: "composite"
   steps:
