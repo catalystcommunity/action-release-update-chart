@@ -7,7 +7,7 @@ inputs:
   release-config:
     description: 'semantic-release release configuration to use'
     required: false
-    default: '@catalystsquad/release-config-general'
+    default: '@catalystcommunity/release-config-general'
   helm-repo:
     description: 'The helm chart git repo to update'
     required: false
